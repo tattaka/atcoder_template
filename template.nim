@@ -14,6 +14,8 @@ var
   a = parseInt(readLine(stdin))
   bc = readLine(stdin).split().map(parseInt)
   s =  readLine(stdin)
+  new_seq = newseqWith(26, 0)
+  new_seq2 = newseqWith(26, newseqWith(26, 0)) # 26x26 sequence
   N = 5
   d: seq[int]
 
@@ -41,3 +43,6 @@ proc toString(str: seq[char]): string =
 # atcoderのNim0.13ではrandomが使えないっぽいのでc言語から持ってくるなど
 
 a = a.sorted(system.cmp[int]) # 昇順ソート
+
+# atcoderのNim0.13では未初期化変数に文字列を連結したりするとREになる
+# toLowerAscii and toUpperAsciiが使えない
