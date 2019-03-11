@@ -40,9 +40,23 @@ proc toString(str: seq[char]): string =
   result = newStringOfCap(len(str))
   for ch in str:
     add(result, ch)
+
+proc gcd(a, b: uint64):uint64 =
+  var
+    a = a
+    b = b
+  while b != 0:
+    var r = a mod b
+    a = b
+    b = r
+  return a
+
+proc lcm(m, n: uint64): uint64 =
+  result = m div gcd(m, n) * n
+  return result
 # atcoderのNim0.13ではrandomが使えないっぽいのでc言語から持ってくるなど
 
-a = a.sorted(system.cmp[int]) # 昇順ソート
+bc = bc.sorted(system.cmp[int]) # 昇順ソート
 
 # atcoderのNim0.13では未初期化変数に文字列を連結したりするとREになる
 # toLowerAscii and toUpperAsciiが使えない
