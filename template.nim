@@ -16,6 +16,8 @@ var
   s =  readLine(stdin)
   new_seq = newseqWith(26, 0)
   new_seq2 = newseqWith(26, newseqWith(26, 0)) # 26x26 sequence
+  newseq_ng = newseq[newseq[int](0)](50) # コンパイル通らない
+  newseq_ac = newseqWith(50, newseq[int](0)) # コンパイル通る
   N = 5
   d: seq[int]
 
