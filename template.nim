@@ -1,4 +1,4 @@
-import sequtils, strutils, math, algorithm
+import sequtils, strutils, math, algorithm, tables
 
 # input =
 # 1
@@ -16,8 +16,9 @@ var
   s =  readLine(stdin)
   new_seq = newseqWith(26, 0)
   new_seq2 = newseqWith(26, newseqWith(26, 0)) # 26x26 sequence
-  newseq_ng = newseq[newseq[int](0)](50) # コンパイル通らない
-  newseq_ac = newseqWith(50, newseq[int](0)) # コンパイル通る
+  # ng_seq = newseq[newseq[int](1)](50) # コンパイル通らない
+  # ac_seq = newseqWith(50, newseq[int](0)) # コンパイル通る
+  table_int = initCountTable[int]()
   N = 5
   d: seq[int]
 
@@ -26,7 +27,9 @@ d = @[]
 for i in 1..N:
   d.add(parseInt(readLine(stdin)))
 echo a,", " , bc, ", ", s, ", ", d # -> 1, @[2, 3], 456, @[7, 8, 9, 10, 11]
-
+for bc_i in bc:
+  table_int.inc(bc_i)
+echo table_int
 # Tips
 var
   multiSeq = @[@[0, 0, 0], @[1, 1, 1], @[2, 2, 2], @[3, 3, 3]]
